@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <title>t-wx-grafik1705</title>
+    <meta name="generator" content="wxMaxima"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="text/x-mathjax-config">  MathJax.Hub.Config({
+    displayAlign: "left",
+    context: "MathJax",
+    TeX: {TagSide: "left"}
+  })
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async="async">  // A comment that hinders wxWidgets from optimizing this tag too much.
+</script>
+    <link rel="stylesheet" type="text/css" href="t-wx-grafik1705_htmlimg/t-wx-grafik1705.css"/>
+  </head>
+  <body>
+    <!-- ****************************************************** -->
+    <!-- *        Created with wxMaxima version 21.05.2       * -->
+    <!-- ****************************************************** -->
+    <noscript>
+      <div class="error message">
+        <p>Please enable JavaScript in order to get a 2d display of the equations embedded in this web page.</p>
+      </div>
+    </noscript>
+    <p hidden="hidden">\(      \DeclareMathOperator{\abs}{abs}
+      \newcommand{\ensuremath}[1]{\mbox{$#1$}}
+\)</p>
+    <!-- Title cell -->
+    <div class="title">
+      <p>Tutorial wxMaxima: Grafik dan Gambar
+</p>
+    </div>
+    <!-- Section cell -->
+    <div class="section">
+      <p>  1 Pilihan
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">Maxima menyediakan beberapa alternatif untuk menampilkan grafik atau membuat plot fungsi. Ada fungsi built-in  misalnya plot2d() yang dapat langsung digunakan untuk membuat plot fungsi 2D. Untuk membuat plot 3D digunakan fungsi plot3d(). Fungsi plot2d() dan plot3d() akan menampilkan gambar di jendela (window) terpisah. Jika ingin menampilkan hasil plot langsung di jendela kerja worksheet wxmaxima, maka dapat digunakan fungsu wxplot2d() dan wxplot3d.
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i1)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">wxplot2d</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\]
+</p>
+    <img src="t-wx-grafik1705_htmlimg/t-wx-grafik1705_1.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
+    <br/>
+    <p>\[\operatorname{	}\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i2)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">wxplot3d</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">-</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">*</span>
+            <span class="code_variable">y</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">y</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\]
+</p>
+    <img src="t-wx-grafik1705_htmlimg/t-wx-grafik1705_4.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
+    <br/>
+    <p>\[\operatorname{	}\]
+</p>
+    <!-- Text cell -->
+    <div class="comment">Alternatif lain untuk membuat gambar atau grafik adalah dengan terlebih dahulu memanggil paket khusus yaitu paket "draw". Dengan menggunakan paket "draw" ini, pembuatan plot dan grafik dapat lebih kaya fitur dan pengaturannya lebih mudah. Untuk menggunakan paket "draw", terlebih dahulu harus dipanggil menggunakan perintah load("draw"). Selanjutnya fungsi yang digunakan untuk menampilkan grafik atau membuat plot adalah draw2d(), draw3d() dan seperti halnya keterangan di atas, bila ingin menampilkan grafik langsung pada jendela kerja sebagai output, maka fungsi yang digunakan adalah wxdraw2d() dan wxdraw3d()
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i3)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">load</span>
+            <span class="code_operator">(</span>
+            <span class="code_string">"draw"</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}"C:/maxima-5.45.1/share/maxima/5.45.1/share/draw/draw.lisp"\]
+</p>
+    <!-- Section cell -->
+    <div class="section">
+      <p>  2 Grafik dan Plotting 2D
+</p>
+    </div>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  2.1 Plot fungsi eksplisit
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">Untuk menampilkan grafik fungsi eksplisit, secara sederhana dapat dilakukan dengan wxdraw2d()
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i4)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">wxdraw2d</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">explicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">*</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">5</span>
+            <span class="code_operator">*</span>
+            <span class="code_function">sin</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">5</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">5</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\]
+</p>
+    <img src="t-wx-grafik1705_htmlimg/t-wx-grafik1705_8.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
+    <br/>
+    <p>\[\operatorname{	}\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i6)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">f</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">*</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">5</span>
+            <span class="code_operator">*</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">$</span>
+            <span class="code_function">wxdraw2d</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">explicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">f</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\]
+</p>
+    <img src="t-wx-grafik1705_htmlimg/t-wx-grafik1705_11.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
+    <br/>
+    <p>\[\operatorname{	}\]
+</p>
+    <!-- Text cell -->
+    <div class="comment">Menggambarkan beberapa fungsi dalam satu grafik
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i9)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">f1</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">5</span>
+            <span class="code_operator">*</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">$</span>
+            <span class="code_function">f2</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">*</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">5</span>
+            <span class="code_operator">*</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">$</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">wxdraw2d</span>
+            <span class="code_operator">(</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">explicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">f1</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">explicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">f2</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\]
+</p>
+    <img src="t-wx-grafik1705_htmlimg/t-wx-grafik1705_14.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
+    <br/>
+    <p>\[\operatorname{	}\]
+</p>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  2.2 Plot fungsi implisit
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">Sedangkan untuk membuat plot fungsi implisit, misalnya berbentuk persamaan lingkaran \(x^2+y^2=1\), dapat dilakukan dengan perintah implicit()
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i11)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">f3</span>
+            <span class="code_operator">:</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">+</span>
+            <span class="code_variable">y</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">$</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">wxdraw2d</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">implicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">f3</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">y</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\]
+</p>
+    <img src="t-wx-grafik1705_htmlimg/t-wx-grafik1705_17.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
+    <br/>
+    <p>\[\operatorname{	}\]
+</p>
+    <!-- Text cell -->
+    <div class="comment">Gambar di atas, yang seharusnya menunjukkan suatu bentuk lingkaran, terlihat tidak proporsional, namun hal itu disebabkan pengaturan nilai sumbu-sumbu.
+</div>
+    <!-- Section cell -->
+    <div class="section">
+      <p>  3 Pengaturan Tampilan Grafik
+</p>
+    </div>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  3.1 Penambahan Legenda
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">Penambahan legenda dapat dilakukan dengan opsi "key-color"
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i12)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">wxdraw2d</span>
+            <span class="code_operator">(</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">key</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"fungsi pertama"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">color</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">blue</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">explicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">f1</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">key</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"fungsi kedua"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">color</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">red</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">explicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">f2</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\]
+</p>
+    <img src="t-wx-grafik1705_htmlimg/t-wx-grafik1705_20.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
+    <br/>
+    <p>\[\operatorname{	}\]
+</p>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  3.2 Nama sumbu (label) dan judul (title)
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">Label sumbu (axis label) diatur dengan option xlabel dan ylabel, sedangkan judul grafik diatur dengan option title
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i13)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">wxdraw2d</span>
+            <span class="code_operator">(</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">key</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"fungsi pertama"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">color</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">blue</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">explicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">f1</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">key</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"fungsi kedua"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">color</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">red</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">explicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">f2</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">xlabel</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"variabel x"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">ylabel</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"variabel y"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">title</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"Plot 2 fungsi"</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\]
+</p>
+    <img src="t-wx-grafik1705_htmlimg/t-wx-grafik1705_23.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
+    <br/>
+    <p>\[\operatorname{	}\]
+</p>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  3.3 Membatasi area grafik
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">Mengatur dan membatasi area grafik dengan option xrange dan y range
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i14)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">wxdraw2d</span>
+            <span class="code_operator">(</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">key</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"fungsi pertama"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">color</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">blue</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">explicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">f1</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">key</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"fungsi kedua"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">color</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">red</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">explicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">f2</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">xlabel</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"variabel x"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">ylabel</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"variabel y"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">title</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"Plot 2 fungsi"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">xrange</span>
+            <span class="code_operator">=</span>
+            <span class="code_operator">[</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">3</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">yrange</span>
+            <span class="code_operator">=</span>
+            <span class="code_operator">[</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">25</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">10</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\]
+</p>
+    <img src="t-wx-grafik1705_htmlimg/t-wx-grafik1705_26.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
+    <br/>
+    <p>\[\operatorname{	}\]
+</p>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  3.4 Pengaturan tebal garis
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">Tebal garis atau kurva diatur dengan option line_width
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i15)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">wxdraw2d</span>
+            <span class="code_operator">(</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">key</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"fungsi pertama"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">color</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">blue</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">line_width</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">explicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">f1</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">key</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"fungsi kedua"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">color</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">red</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">line_width</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">4</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">explicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">f2</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">xlabel</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"variabel x"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">ylabel</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"variabel y"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">title</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"Plot 2 fungsi"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">xrange</span>
+            <span class="code_operator">=</span>
+            <span class="code_operator">[</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">3</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">yrange</span>
+            <span class="code_operator">=</span>
+            <span class="code_operator">[</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">25</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">10</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\]
+</p>
+    <img src="t-wx-grafik1705_htmlimg/t-wx-grafik1705_29.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
+    <br/>
+    <p>\[\operatorname{	}\]
+</p>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  3.5 Menampilkan sumbu-sumbu koordinat
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">Untuk menampilkan sumbu-sumbu koordinat dalam bentuk konvensional, dapat dilakukan dengan option xaxis=true dan yaxis=true
+      <br/>Pengaturan tipe garis sumbu dengan option xaxis_type dan yaxis_type
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i16)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">wxdraw2d</span>
+            <span class="code_operator">(</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">key</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"fungsi pertama"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">color</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">blue</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">line_width</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">explicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">f1</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">key</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"fungsi kedua"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">color</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">red</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">line_width</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">4</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">explicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">f2</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">xlabel</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"variabel x"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">ylabel</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"variabel y"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">title</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"Plot 2 fungsi"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">xrange</span>
+            <span class="code_operator">=</span>
+            <span class="code_operator">[</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">3</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">yrange</span>
+            <span class="code_operator">=</span>
+            <span class="code_operator">[</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">25</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">10</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">xaxis</span>
+            <span class="code_operator">=</span>
+            <span class="code_function">true</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">yaxis</span>
+            <span class="code_operator">=</span>
+            <span class="code_function">true</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">xaxis_type</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">solid</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">yaxis_type</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">solid</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\]
+</p>
+    <img src="t-wx-grafik1705_htmlimg/t-wx-grafik1705_32.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
+    <br/>
+    <p>\[\operatorname{	}\]
+</p>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  3.6 Skala sumbu proporsional
+</p>
+    </div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i17)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">wxdraw2d</span>
+            <span class="code_operator">(</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">proportional_axes</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">xy</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">key</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"fungsi pertama"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">color</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">blue</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">line_width</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">explicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">f1</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">key</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"fungsi kedua"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">color</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">red</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">line_width</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">4</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">explicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">f2</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">xlabel</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"variabel x"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">ylabel</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"variabel y"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">title</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"Plot 2 fungsi"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">xrange</span>
+            <span class="code_operator">=</span>
+            <span class="code_operator">[</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">3</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">yrange</span>
+            <span class="code_operator">=</span>
+            <span class="code_operator">[</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">25</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">10</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\]
+</p>
+    <img src="t-wx-grafik1705_htmlimg/t-wx-grafik1705_35.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
+    <br/>
+    <p>\[\operatorname{	}\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i18)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">wxdraw2d</span>
+            <span class="code_operator">(</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">proportional_axes</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">xy</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">implicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">f3</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">.</span>
+            <span class="code_number">5</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">.</span>
+            <span class="code_number">5</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">y</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">.</span>
+            <span class="code_number">5</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">.</span>
+            <span class="code_number">5</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\]
+</p>
+    <img src="t-wx-grafik1705_htmlimg/t-wx-grafik1705_38.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
+    <br/>
+    <p>\[\operatorname{	}\]
+</p>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  3.7 Fungsi potongan (piecewise function)
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">Yang dimaksud fungsi potongan adalah fungsi yang didefinisikan dalam interval-interval tertentu. Misalnya
+      <br/>\[
+      <br/>f(x)=\begin{cases} x+1,&amp;\;-1&lt;x&lt;0 \\ 1, &amp; 0&lt;x&lt;1 \end{cases}
+      <br/>\]
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i20)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">wxdraw2d</span>
+            <span class="code_operator">(</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">title</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"Fungsi Potongan"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">yrange</span>
+            <span class="code_operator">=</span>
+            <span class="code_operator">[</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">line_width</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">4</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">xaxis</span>
+            <span class="code_operator">=</span>
+            <span class="code_function">true</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">yaxis</span>
+            <span class="code_operator">=</span>
+            <span class="code_function">true</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">xaxis_type</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">solid</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">yaxis_type</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">solid</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">explicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">+</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">0</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">explicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">0</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\]
+</p>
+    <img src="t-wx-grafik1705_htmlimg/t-wx-grafik1705_41.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
+    <br/>
+    <p>\[\operatorname{	}\]
+</p>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  3.8 Menambahkan label dan titik pada grafik
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">Label berupa teks atau keterangan tulisan lain dapat diberikan dengan option label().
+      <br/>Formatnya adalah
+      <br/>label(["teks label",x,y])
+      <br/>dengan x dan y menyatakan posisi label
+      <br/>Teks label tersebut juga diatur alignment nya dengan perintah label_alignment
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i24)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">wxdraw2d</span>
+            <span class="code_operator">(</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">key</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"fungsi pertama"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">color</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">blue</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">line_width</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">explicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">f1</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">key</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"fungsi kedua"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">color</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">red</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">line_width</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">4</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">explicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">f2</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">xlabel</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"variabel x"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">ylabel</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"variabel y"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">title</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"Plot 2 fungsi"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">xrange</span>
+            <span class="code_operator">=</span>
+            <span class="code_operator">[</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">3</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">yrange</span>
+            <span class="code_operator">=</span>
+            <span class="code_operator">[</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">25</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">10</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">color</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">black</span>
+            <span class="code_endofline">,</span>
+            <span class="code_function">label</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">[</span>
+            <span class="code_string">"label tambahan 1"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">color</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">purple</span>
+            <span class="code_endofline">,</span>
+            <span class="code_function">label</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">[</span>
+            <span class="code_string">"label lainnya ??"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\]
+</p>
+    <img src="t-wx-grafik1705_htmlimg/t-wx-grafik1705_44.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
+    <br/>
+    <p>\[\operatorname{	}\]
+</p>
+    <!-- Text cell -->
+    <div class="comment">Sedangkan untuk menambhakan titik dilakukan dengan perintah
+      <br/>points([[x1,y1],[x2,y2],...,[xn,yn]])
+      <br/>Tipe titik diatur dengan point_type
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i29)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">wxdraw2d</span>
+            <span class="code_operator">(</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">key</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"fungsi pertama"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">color</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">blue</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">line_width</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>   
+            <span class="code_function">explicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">f1</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">key</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"fungsi kedua"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">color</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">red</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">line_width</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">4</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">explicit</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">f2</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">xlabel</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"variabel x"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">ylabel</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"variabel y"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">title</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"Plot 2 fungsi"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">xrange</span>
+            <span class="code_operator">=</span>
+            <span class="code_operator">[</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">3</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">yrange</span>
+            <span class="code_operator">=</span>
+            <span class="code_operator">[</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">25</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">10</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">color</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">black</span>
+            <span class="code_endofline">,</span>
+            <span class="code_function">label</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">[</span>
+            <span class="code_string">"label tambahan 1"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">color</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">purple</span>
+            <span class="code_endofline">,</span>
+            <span class="code_function">label</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">[</span>
+            <span class="code_string">"label lainnya ??"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">-</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_variable">color</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">black</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">point_type</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">filled_circle</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">point_size</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">5</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">key</span>
+            <span class="code_operator">=</span>
+            <span class="code_string">"titik tambahan"</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">points</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">[</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">0</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">0</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">0</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\]
+</p>
+    <img src="t-wx-grafik1705_htmlimg/t-wx-grafik1705_47.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
+    <br/>
+    <p>\[\operatorname{	}\]
+</p>
+    <hr/>
+    <p>
+      <small> Created with 
+        <a href="https://wxMaxima-developers.github.io/wxmaxima/">wxMaxima</a>.</small>
+    </p>
+    <small> The source of this Maxima session can be downloaded 
+      <a href="t-wx-grafik1705_htmlimg/t-wx-grafik1705.wxmx">here</a>.</small>
+  </body>
+</html>
