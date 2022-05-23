@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <title>Contoh CAS 09</title>
+    <meta name="generator" content="wxMaxima"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="text/x-mathjax-config">  MathJax.Hub.Config({
+    displayAlign: "left",
+    context: "MathJax",
+    TeX: {TagSide: "left"}
+  })
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async="async">  // A comment that hinders wxWidgets from optimizing this tag too much.
+</script>
+    <link rel="stylesheet" type="text/css" href="Contoh%20CAS%2009_htmlimg/Contoh%20CAS%2009.css"/>
+  </head>
+  <body>
+    <!-- ****************************************************** -->
+    <!-- *        Created with wxMaxima version 22.04.0       * -->
+    <!-- ****************************************************** -->
+    <noscript>
+      <div class="error message">
+        <p>Please enable JavaScript in order to get a 2d display of the equations embedded in this web page.</p>
+      </div>
+    </noscript>
+    <p hidden="hidden">\(      \DeclareMathOperator{\abs}{abs}
+      \newcommand{\ensuremath}[1]{\mbox{$#1$}}
+\)</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i1)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">kill</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">all</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\ensuremath{\mathrm{done}}\]
+</p>
+    <!-- Image cell -->
+    <div class="image">Figure 1:
+
+      <br/>
+      <img src="Contoh%20CAS%2009_htmlimg/Contoh%20CAS%2009_1.png" alt="Diagram" style="max-width:90%;" loading="lazy"/>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">Misalkan kerucut terletak di bidang xy dengan alas berjejari R dan tinggi T, sumbu kerucut berimpit dengan sumbu z.
+      <br/>Ambil elemen massa berupa cakram dengan jejari r yang terletak pada posisi z dan tebalnya dz
+      <br/>Dengan jejari R dan tinggi T, maka penampang vertikal kerucut berbentuk dua segitiga siku-siku dengan sisi siku-siku R dan T dan sudut alas adalah θ = arctan (T/R). Maka elemen massa cakram yang terletak pada ketinggian z akan mempunyai jejari 
+      <br/>r/(T-z)=R/T --&gt; r = (R/T)*(T-z)
+      <br/>jika tebal elemen massa tersebut adalah dz, maka volume elemen adalah
+      <br/>dV=π*r^2*dz=π*(T-z)^2(R/T)^2dz
+      <br/>dan massa elemen adalah
+      <br/>dM=ρdV=ρ*π*(T-z)^2(R/T)^2dz
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i5)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">T</span>
+            <span class="code_operator">:</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">$</span>
+            <span class="code_comment">/*tinggi kerucut*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_variable">R</span>
+            <span class="code_operator">:</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">$</span>
+            <span class="code_comment">/*jejari alas kerucut*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">r</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">R</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">T</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">*</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">T</span>
+            <span class="code_operator">-</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">$</span>
+            <span class="code_comment">/*jejari cakram pada posisi z*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">dVol</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">%pi</span>
+            <span class="code_operator">*</span>
+            <span class="code_function">r</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">*</span>
+            <span class="code_function">r</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">$</span>
+            <span class="code_comment">/*volume cakram*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">dM</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">%rho</span>
+            <span class="code_operator">*</span>
+            <span class="code_function">dVol</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\operatorname{dM}(z)\operatorname{:=}\rho  \operatorname{dVol}(z)\]
+</p>
+    <!-- Text cell -->
+    <div class="comment">Dengan demikian volume kerucut tersebut adalah
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i6)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">V_kerucut</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">integrate</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">dVol</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">0</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">T</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\frac{2 \ensuremath{\pi} }{3}\]
+</p>
+    <!-- Text cell -->
+    <div class="comment">Massa kerucut
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i7)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">M_kerucut</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">integrate</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">dM</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">0</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">T</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\frac{2 \ensuremath{\pi}  \rho }{3}\]
+</p>
+    <!-- Text cell -->
+    <div class="comment">Momen inersia cakram yang massanya dM dan jejari r(z), terhadap sumbu z
+      <br/>dI=(1/2)(dM(z))(r(z))^2
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i11)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">dI</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">/</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">*</span>
+            <span class="code_function">dM</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">*</span>
+            <span class="code_function">r</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">*</span>
+            <span class="code_function">r</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_variable">I_kerucut</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">integrate</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">dI</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">0</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">T</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\operatorname{dI}(z)\operatorname{:=}\frac{1}{2} \operatorname{dM}(z) \operatorname{r}(z) \operatorname{r}(z)\]
+</p>
+    <p>\[\operatorname{	}\frac{\ensuremath{\pi}  \rho }{5}\]
+</p>
+    <hr/>
+    <p>
+      <small> Created with 
+        <a href="https://wxMaxima-developers.github.io/wxmaxima/">wxMaxima</a>.</small>
+    </p>
+    <small> The source of this Maxima session can be downloaded 
+      <a href="Contoh CAS 09_htmlimg/Contoh CAS 09.wxmx">here</a>.</small>
+  </body>
+</html>

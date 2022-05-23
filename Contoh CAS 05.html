@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<HTML>
+ <HEAD>
+  <TITLE>Contoh CAS 05</TITLE>
+  <META NAME="generator" CONTENT="wxMaxima">
+  <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    context: "MathJax",
+    TeX: {TagSide: "left"}
+  })
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML">
+</script>
+  <link rel="stylesheet" type="text/css" href="Contoh CAS 05_htmlimg/Contoh CAS 05.css"/>
+ </HEAD>
+ <BODY>
+
+<!-- ***************************************************** -->
+<!--          Created with wxMaxima version 17.10.1         -->
+<!-- ***************************************************** -->
+<noscript><div class="error message">    Please enable JavaScript in order to get a 2d display of the equations embedded in this web page.</div></noscript>\(      \DeclareMathOperator{\abs}{abs}
+      \newcommand{\ensuremath}[1]{\mbox{$#1$}}
+\)
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i1)	
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">kill</span>(<span class="code_variable">all</span>)<span class="code_endofline">;</span>  </SPAN></TD>
+</TR></TABLE>
+
+
+
+<!-- Image cell -->
+
+
+<P CLASS="image">
+Figure 1:G:\Other computers\Zenbook - Surface\FI5080_sem2_2021-2022\CAS Project 05.jpg
+<BR/>
+  <IMG src="Contoh CAS 05_htmlimg/Contoh CAS 05_0.jpg" alt="Diagram" style="max-width:90%;" >
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i1)	
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_comment">/·</span><span class="code_comment">x</span><span class="code_comment">:</span><span class="code_comment">2</span><span class="code_comment">;</span><span class="code_comment">y</span><span class="code_comment">:</span><span class="code_comment">1</span><span class="code_comment">;</span><span class="code_comment">z</span><span class="code_comment">:</span><span class="code_comment">1</span><span class="code_comment">;</span><span class="code_comment">·/</span><BR>
+<span class="code_comment">/·</span><span class="code_comment">koordinat</span><span class="code_comment"> </span><span class="code_comment">x</span><span class="code_comment">,</span><span class="code_comment">y</span><span class="code_comment">, </span><span class="code_comment">dan</span><span class="code_comment"> </span><span class="code_comment">z</span><span class="code_comment">·/</span><BR>
+<span class="code_comment">/·</span><span class="code_comment">theta</span><span class="code_comment">:</span><span class="code_comment">atan</span><span class="code_comment">(</span><span class="code_comment">y</span><span class="code_comment">/</span><span class="code_comment">x</span><span class="code_comment">)</span><span class="code_comment">$</span><span class="code_comment">·/</span><BR>
+<span class="code_comment">/·</span><span class="code_comment">r</span><span class="code_comment">:</span><span class="code_comment">sqrt</span><span class="code_comment">(</span><span class="code_comment">x</span><span class="code_comment">^</span><span class="code_comment">2</span><span class="code_comment">+</span><span class="code_comment">y</span><span class="code_comment">^</span><span class="code_comment">2</span><span class="code_comment">)</span><span class="code_comment">$</span><span class="code_comment">·/</span><BR>
+<span class="code_variable">trans_vek_sat</span><span class="code_operator">:</span> <span class="code_function">matrix</span>(<BR>
+ [<span class="code_function">cos</span>(<span class="code_variable">θ</span>),<span class="code_function">sin</span>(<span class="code_variable">θ</span>),<span class="code_number">0</span>], <BR>
+ [<span class="code_operator">−</span><span class="code_function">sin</span>(<span class="code_variable">θ</span>),<span class="code_function">cos</span>(<span class="code_variable">θ</span>),<span class="code_number">0</span>], <BR>
+ [<span class="code_number">0</span>,<span class="code_number">0</span>,<span class="code_number">1</span>]<BR>
+)<span class="code_endofline">$</span><span class="code_comment">/·</span><span class="code_comment">matriks</span><span class="code_comment"> </span><span class="code_comment">transformasi</span><span class="code_comment"> </span><span class="code_comment">vektor</span><span class="code_comment"> </span><span class="code_comment">K</span><span class="code_comment"> </span><span class="code_comment">−</span><span class="code_comment">−</span><span class="code_comment">&gt; </span><span class="code_comment">S</span><span class="code_comment">·/</span>  </SPAN></TD>
+</TR></TABLE>
+
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i2)	
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">A</span><span class="code_operator">:</span><span class="code_function">invert</span>(<span class="code_variable">trans_vek_sat</span>)<span class="code_endofline">$</span><BR>
+<span class="code_comment">/·</span><span class="code_comment">matriks</span><span class="code_comment"> </span><span class="code_comment">transformasi</span><span class="code_comment"> </span><span class="code_comment">vektor</span><span class="code_comment"> </span><span class="code_comment">satuan</span><span class="code_comment"> </span><span class="code_comment">S</span><span class="code_comment"> </span><span class="code_comment">−</span><span class="code_comment">−</span><span class="code_comment">&gt; </span><span class="code_comment">K</span><span class="code_comment">·/</span>  </SPAN></TD>
+</TR></TABLE>
+
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i5)	
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">iHat</span><span class="code_operator">:</span><span class="code_variable">A</span>[<span class="code_number">1</span>,<span class="code_number">1</span>]·<span class="code_variable">rHat</span><span class="code_operator">+</span><span class="code_variable">A</span>[<span class="code_number">1</span>,<span class="code_number">2</span>]·<span class="code_variable">teHat</span><span class="code_operator">+</span><span class="code_variable">A</span>[<span class="code_number">1</span>,<span class="code_number">3</span>]·<span class="code_variable">zHat</span><span class="code_endofline">$</span><BR>
+<span class="code_variable">jHat</span><span class="code_operator">:</span><span class="code_variable">A</span>[<span class="code_number">2</span>,<span class="code_number">1</span>]·<span class="code_variable">rHat</span><span class="code_operator">+</span><span class="code_variable">A</span>[<span class="code_number">2</span>,<span class="code_number">2</span>]·<span class="code_variable">teHat</span><span class="code_operator">+</span><span class="code_variable">A</span>[<span class="code_number">2</span>,<span class="code_number">3</span>]·<span class="code_variable">zHat</span><span class="code_endofline">$</span><BR>
+<span class="code_variable">kHat</span><span class="code_operator">:</span><span class="code_variable">A</span>[<span class="code_number">3</span>,<span class="code_number">1</span>]·<span class="code_variable">rHat</span><span class="code_operator">+</span><span class="code_variable">A</span>[<span class="code_number">3</span>,<span class="code_number">2</span>]·<span class="code_variable">teHat</span><span class="code_operator">+</span><span class="code_variable">A</span>[<span class="code_number">3</span>,<span class="code_number">3</span>]·<span class="code_variable">zHat</span><span class="code_endofline">$</span><BR>
+<span class="code_comment">/·</span><span class="code_comment">vektor</span><span class="code_comment">−</span><span class="code_comment">vektor</span><span class="code_comment"> </span><span class="code_comment">satuan</span><span class="code_comment"> </span><span class="code_comment">i</span><span class="code_comment">,</span><span class="code_comment">j</span><span class="code_comment"> </span><span class="code_comment">dan</span><span class="code_comment"> </span><span class="code_comment">k</span><span class="code_comment"> </span><span class="code_comment">dinyatakan</span><span class="code_comment"> </span><span class="code_comment">dalam</span><span class="code_comment"> </span><span class="code_comment">vektor</span><span class="code_comment"> </span><span class="code_comment">satuan</span><span class="code_comment"><BR>
+</span><span class="code_comment">SKS</span><span class="code_comment">·/</span>  </SPAN></TD>
+</TR></TABLE>
+
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Bentuk medan vektor A dalam sistem koordinat kartesian<BR>
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i6)	
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">medan_A</span><span class="code_operator">:</span><span class="code_number">2</span>·<span class="code_variable">x</span>·<span class="code_variable">iHat</span><span class="code_operator">−</span><span class="code_variable">jHat</span><span class="code_operator">+</span><span class="code_variable">y</span>·<span class="code_variable">kHat</span><span class="code_endofline">$</span><BR>
+<span class="code_comment">/·</span><span class="code_comment">bentuk</span><span class="code_comment"> </span><span class="code_comment">medan</span><span class="code_comment"> </span><span class="code_comment">vektor</span><span class="code_comment"> </span><span class="code_comment">A</span><span class="code_comment"> </span><span class="code_comment">dalam</span><span class="code_comment"> </span><span class="code_comment">SKK</span><span class="code_comment">·/</span>  </SPAN></TD>
+</TR></TABLE>
+
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Bentuk medan vektor A dalam sistem koordinat silinder<BR>
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i9)	
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">xk</span><span class="code_operator">:</span><span class="code_variable">r</span>·<span class="code_function">cos</span>(<span class="code_variable">θ</span>)<span class="code_endofline">$</span><span class="code_variable">yk</span><span class="code_operator">:</span><span class="code_variable">r</span>·<span class="code_function">sin</span>(<span class="code_variable">θ</span>)<span class="code_endofline">$</span><BR>
+<span class="code_variable">A_silinder</span><span class="code_operator">:</span><span class="code_function">subst</span>([<span class="code_variable">x</span><span class="code_operator">=</span><span class="code_variable">xk</span>,<span class="code_variable">y</span><span class="code_operator">=</span><span class="code_variable">yk</span>],<span class="code_variable">medan_A</span>)<span class="code_endofline">;</span>  </SPAN></TD>
+</TR></TABLE>
+
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Titik (koordinat) yang dievaluasi<BR>
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i17)	
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">x0</span><span class="code_operator">:</span><span class="code_number">1</span><span class="code_endofline">$</span><span class="code_variable">y0</span><span class="code_operator">:</span><span class="code_number">1</span><span class="code_endofline">$</span><span class="code_variable">z0</span><span class="code_operator">:</span><span class="code_number">1</span><span class="code_endofline">$</span>  </SPAN></TD>
+</TR></TABLE>
+
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i18)	
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">A_sil_koord</span><span class="code_operator">:</span><span class="code_function">subst</span>([<span class="code_variable">x</span><span class="code_operator">=</span><span class="code_variable">x0</span>,<span class="code_variable">y</span><span class="code_operator">=</span><span class="code_variable">y0</span>,<span class="code_variable">θ</span><span class="code_operator">=</span><span class="code_function">atan</span>(<span class="code_variable">y0</span><span class="code_operator">/</span><span class="code_variable">x0</span>)],<span class="code_variable">medan_A</span>)<span class="code_endofline">;</span>  </SPAN></TD>
+</TR></TABLE>
+
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Ungkapan medan vektor A dalam sistem koordinat silinder<BR>
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i19)	
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">ratsimp</span>(<span class="code_variable">A_sil_koord</span>)<span class="code_endofline">;</span>  </SPAN></TD>
+</TR></TABLE>
+
+
+ <HR>
+ <SMALL> Created with <A HREF="https://andrejv.github.io/wxmaxima/">wxMaxima</A>.</SMALL>
+ </BODY>
+</HTML>

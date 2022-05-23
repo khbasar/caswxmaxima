@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <title>Contoh CAS 10</title>
+    <meta name="generator" content="wxMaxima"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="text/x-mathjax-config">  MathJax.Hub.Config({
+    displayAlign: "left",
+    context: "MathJax",
+    TeX: {TagSide: "left"}
+  })
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async="async">  // A comment that hinders wxWidgets from optimizing this tag too much.
+</script>
+    <link rel="stylesheet" type="text/css" href="Contoh%20CAS%2010_htmlimg/Contoh%20CAS%2010.css"/>
+  </head>
+  <body>
+    <!-- ****************************************************** -->
+    <!-- *        Created with wxMaxima version 21.05.2       * -->
+    <!-- ****************************************************** -->
+    <noscript>
+      <div class="error message">
+        <p>Please enable JavaScript in order to get a 2d display of the equations embedded in this web page.</p>
+      </div>
+    </noscript>
+    <p hidden="hidden">\(      \DeclareMathOperator{\abs}{abs}
+      \newcommand{\ensuremath}[1]{\mbox{$#1$}}
+\)</p>
+    <!-- Image cell -->
+    <div class="image">Figure 1:
+
+      <br/>
+      <img src="Contoh%20CAS%2010_htmlimg/Contoh%20CAS%2010_0.png" alt="Diagram" style="max-width:90%;" loading="lazy"/>
+    </div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i1)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">kill</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">all</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+            <span class="code_function">load</span>
+            <span class="code_operator">(</span>
+            <span class="code_string">"vect"</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\ensuremath{\mathrm{done}}\]
+</p>
+    <p>\[\operatorname{	}"C:/maxima-5.45.1/share/maxima/5.45.1/share/vector/vect.mac"\]
+</p>
+    <!-- Section cell -->
+    <div class="section">
+      <p>  1 Sistem Koordinat Kartesian
+</p>
+    </div>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  1.1 Gradient
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">Operator gradien bekerja pada medan skalar. Misalkan untuk suatu medan skalar \(\phi(x,y,z)=x^2+yz\), gradiennya dinyatakan dengan 
+      <br/>\[\vec{\nabla}\left(\phi(x,y,z)\right)=\frac{\partial \phi}{\partial x}\hat{i}+\frac{\partial \phi}{\partial y}\hat{j}+\frac{\partial \phi}{\partial z}\hat{k}\]
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i4)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_comment">/*---*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">phi</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">y</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">+</span>
+            <span class="code_variable">y</span>
+            <span class="code_operator">*</span>
+            <span class="code_variable">z</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_comment">/*---*/</span>
+            <span class="code_comment">/*bentuk fungsi medan skalar dalam sistem koordinat kartesian*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_variable">G</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">ev</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">express</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">grad</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">phi</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">y</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">diff</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">$</span>
+            <span class="code_function">define</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">Gradien_phi</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">y</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">G</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\operatorname{phi}\left( x\operatorname{,}y\operatorname{,}z\right) \operatorname{:=}{{x}^{2}}+y z\]
+</p>
+    <p>\[\operatorname{	}\operatorname{Gradien\_ phi}\left( x\operatorname{,}y\operatorname{,}z\right) \operatorname{:=}\left[ 2 x\operatorname{,}z\operatorname{,}y\right] \]
+</p>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  1.2 Divergensi
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">Operator divergensi bekerja pada suatu medan vektor. Misalkan untuk suatu medan vektor 
+      <br/>\(\vec{V1}=x^2\hat{i}+y^2\hat{j}+2z\hat{k}\)
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i7)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_comment">/*---*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">V1</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">y</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">y</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">*</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_comment">/*---*/</span>
+            <span class="code_comment">/*bentuk fungsi medan vektor dalam sistem koordinat kartesian*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_variable">D</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">ev</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">express</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">div</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">V1</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">y</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">diff</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">$</span>
+            <span class="code_function">define</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">Divergensi_V1</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">y</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">D</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\operatorname{V1}\left( x\operatorname{,}y\operatorname{,}z\right) \operatorname{:=}\left[ {{x}^{2}}\operatorname{,}{{y}^{2}}\operatorname{,}2 z\right] \]
+</p>
+    <p>\[\operatorname{	}\operatorname{Divergensi\_ V1}\left( x\operatorname{,}y\operatorname{,}z\right) \operatorname{:=}2 y+2 x+2\]
+</p>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  1.3 Rotasi
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">Operator rotasi bekerja pada suatu medan vektor. Misalkan untuk suatu medan vektor 
+      <br/>\(\vec{V2}=x^2e^{z}\hat{i}+yz^2\hat{j}+(y+z)\hat{k}\)
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i10)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_comment">/*---*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">V2</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">y</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">*</span>
+            <span class="code_function">exp</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">y</span>
+            <span class="code_operator">*</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">y</span>
+            <span class="code_operator">+</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_comment">/*---*/</span>
+            <span class="code_comment">/*bentuk fungsi medan vektor dalam sistem koordinat kartesian*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_variable">R</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">ev</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">express</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">curl</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">V2</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">y</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">diff</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+            <span class="code_function">define</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">Rotasi_V2</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">y</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">R</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\operatorname{V2}\left( x\operatorname{,}y\operatorname{,}z\right) \operatorname{:=}\left[ {{x}^{2}} \operatorname{exp}(z)\operatorname{,}y {{z}^{2}}\operatorname{,}y+z\right] \]
+</p>
+    <p>\[\operatorname{(R)	}\left[ 1-2 y z\operatorname{,}{{x}^{2}} {{\% e}^{z}}\operatorname{,}0\right] \]
+</p>
+    <p>\[\operatorname{	}\operatorname{Rotasi\_ V2}\left( x\operatorname{,}y\operatorname{,}z\right) \operatorname{:=}\left[ 1-2 y z\operatorname{,}{{x}^{2}} {{\% e}^{z}}\operatorname{,}0\right] \]
+</p>
+    <!-- Section cell -->
+    <div class="section">
+      <p>  2 Sistem Koordinat Silinder
+</p>
+    </div>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  2.1 Gradient
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">Bentuk operator gradien dalam koordinat silinder adalah
+      <br/>\[\vec{\nabla}\phi(r,\theta,z)=\frac{\partial \phi}{\partial r}\hat{e_r}+\frac{1}{r}\frac{\partial \phi}{\partial \theta}\hat{e_\theta}
+      <br/>+\frac{\partial \phi}{\partial z}\hat{e_z}\]
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i13)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_comment">/*----*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">phicyl</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">*</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_operator">+</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">*</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">-</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_comment">/*---*/</span>
+            <span class="code_comment">/*bentuk fungsi medan skalar dalam sistem koordinat silinder*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_variable">Gcyl</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">ev</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">express</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">[</span>
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">phicyl</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>      
+            <span class="code_number">1</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">*</span>
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">phicyl</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">phicyl</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">diff</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">define</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">Gradien_phi_cyl</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">Gcyl</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\operatorname{phicyl}\left( r\operatorname{,}\theta \operatorname{,}z\right) \operatorname{:=}r \theta +r z-{{z}^{2}}\]
+</p>
+    <p>\[\operatorname{(Gcyl)	}\left[ z+\theta \operatorname{,}1\operatorname{,}r-2 z\right] \]
+</p>
+    <p>\[\operatorname{	}\operatorname{Gradien\_ phi\_ cyl}\left( r\operatorname{,}\theta \operatorname{,}z\right) \operatorname{:=}\left[ z+\theta \operatorname{,}1\operatorname{,}r-2 z\right] \]
+</p>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  2.2 Divergensi
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">Bentuk operator divergensi dalam koordinat silinder adalah
+      <br/>\[\vec{\nabla}\cdot\vec{V}(r,\theta,z)=\frac{1}{r}\frac{\partial\; rV_r}{\partial r}+\frac{1}{r}\frac{\partial V_\theta}{\partial \theta}
+      <br/>+\frac{\partial V_z}{\partial z}\]
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i16)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_comment">/*---*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">V1cyl</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">*</span>
+            <span class="code_variable">z</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">*</span>
+            <span class="code_function">cos</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_comment">/*---*/</span>
+            <span class="code_comment">/*bentuk medan vektor dalam sistem koordinat silinder*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_variable">Dcyl</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">ev</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">express</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">*</span>
+            <span class="code_function">V1cyl</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">+</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">V1cyl</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">+</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">V1cyl</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">diff</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">define</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">Divergensi_V1cyl</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">Dcyl</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\operatorname{V1cyl}\left( r\operatorname{,}\theta \operatorname{,}z\right) \operatorname{:=}\left[ {{r}^{2}} z\operatorname{,}2 \cos{\left( \theta \right) }\operatorname{,}z\right] \]
+</p>
+    <p>\[\operatorname{(Dcyl)	}3 r z-\frac{2 \sin{\left( \theta \right) }}{r}+1\]
+</p>
+    <p>\[\operatorname{	}\operatorname{Divergensi\_ V1cyl}\left( r\operatorname{,}\theta \operatorname{,}z\right) \operatorname{:=}3 r z-\frac{2 \sin{\left( \theta \right) }}{r}+1\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i17)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">Divergensi_V1cyl</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%pi</span>
+            <span class="code_operator">/</span>
+            <span class="code_number">4</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}4-\sqrt{2}\]
+</p>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  2.3 Rotasi
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">Bentuk operator rotasi dalam koordinat silinder adalah
+      <br/>\[\vec{\nabla}\times\vec{V}(r,\theta,z)=
+      <br/>\left( \frac{1}{r}\frac{\partial V_z}{\partial \theta}-\frac{\partial V_\theta}{\partial z} \right)\hat{e_r} +
+      <br/>\left( \frac{\partial V_r}{\partial z}-\frac{\partial V_z}{\partial r} \right)   \hat{e_\theta} +
+      <br/>\frac{1}{r}\left( \frac{\partial (rV_\theta)}{\partial r}-\frac{\partial V_r}{\partial \theta} \right)   \hat{e_z}
+      <br/>\]
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i20)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_comment">/*---*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">V2cyl</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">*</span>
+            <span class="code_variable">z</span>
+            <span class="code_endofline">,</span>
+            <span class="code_function">sin</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">*</span>
+            <span class="code_function">cos</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_comment">/*---*/</span>
+            <span class="code_comment">/*bentuk medan vektor dalam sistem koordinat silinder*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_variable">Rcyl</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">ev</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">[</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">express</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">V2cyl</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">-</span>
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">V2cyl</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">express</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">V2cyl</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">-</span>
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">V2cyl</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">express</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">*</span>
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">*</span>
+            <span class="code_function">V2cyl</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">-</span>
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">V2cyl</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">diff</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">define</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">Rotasi_V2cyl</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">z</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">Rcyl</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\operatorname{V2cyl}\left( r\operatorname{,}\theta \operatorname{,}z\right) \operatorname{:=}\left[ {{r}^{2}} z\operatorname{,}\sin{\left( \theta \right) }\operatorname{,}z \cos{\left( \theta \right) }\right] \]
+</p>
+    <p>\[\operatorname{(Rcyl)	}\left[ -\frac{\sin{\left( \theta \right) } z}{r}\operatorname{,}{{r}^{2}}\operatorname{,}\frac{\sin{\left( \theta \right) }}{r}\right] \]
+</p>
+    <p>\[\operatorname{	}\operatorname{Rotasi\_ V2cyl}\left( r\operatorname{,}\theta \operatorname{,}z\right) \operatorname{:=}\left[ -\frac{\sin{\left( \theta \right) } z}{r}\operatorname{,}{{r}^{2}}\operatorname{,}\frac{\sin{\left( \theta \right) }}{r}\right] \]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i21)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">Rotasi_V2cyl</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%pi</span>
+            <span class="code_operator">/</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">0</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\left[ 0\operatorname{,}4\operatorname{,}\frac{1}{2}\right] \]
+</p>
+    <!-- Section cell -->
+    <div class="section">
+      <p>  3 Sistem Koordinat Bola
+</p>
+    </div>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  3.1 Gradient
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">Bentuk operator gradien dalam koordinat bola adalah
+      <br/>\[\vec{\nabla}\phi(r,\theta,\varphi)=\frac{\partial \phi}{\partial r}\hat{e_r}+\frac{1}{r}\frac{\partial \phi}{\partial \theta}\hat{e_\theta}+\frac{1}{r\sin\theta}\frac{\partial \phi}{\partial \varphi}\hat{e_\varphi}\]
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i24)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_comment">/*---*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_variable">phisph</span>
+            <span class="code_operator">:</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">*</span>
+            <span class="code_function">sin</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">*</span>
+            <span class="code_function">sin</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">%varphi</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_comment">/*---*/</span>
+            <span class="code_comment">/*bentuk fungsi medan skalar dalam sistem koordinat bola*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_variable">Gsph</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">ev</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">express</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">[</span>
+            <span class="code_endofline">
+              <br/>
+            </span>            
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">phisph</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>            
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">phisph</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>            
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">phisph</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%varphi</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">/</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">*</span>
+            <span class="code_function">sin</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">
+              <br/>
+            </span>        
+            <span class="code_operator">]</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">diff</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">define</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">Gradien_phi_sph</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%varphi</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">Gsph</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{(phisph)	}\sin{\left( \theta \right) } \sin{\left( \ensuremath{\mathrm{\% varphi}}\right) } {{r}^{2}}\]
+</p>
+    <p>\[\operatorname{(Gsph)	}\left[ 2 \sin{\left( \theta \right) } \sin{\left( \ensuremath{\mathrm{\% varphi}}\right) } r\operatorname{,}\cos{\left( \theta \right) } \sin{\left( \ensuremath{\mathrm{\% varphi}}\right) } r\operatorname{,}\cos{\left( \ensuremath{\mathrm{\% varphi}}\right) } r\right] \]
+</p>
+    <p>\[\operatorname{	}\operatorname{Gradien\_ phi\_ sph}\left( r\operatorname{,}\theta \operatorname{,}\ensuremath{\mathrm{\% varphi}}\right) \operatorname{:=}\left[ 2 \sin{\left( \theta \right) } \sin{\left( \ensuremath{\mathrm{\% varphi}}\right) } r\operatorname{,}\cos{\left( \theta \right) } \sin{\left( \ensuremath{\mathrm{\% varphi}}\right) } r\operatorname{,}\cos{\left( \ensuremath{\mathrm{\% varphi}}\right) } r\right] \]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i25)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">Gradien_phi_sph</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%pi</span>
+            <span class="code_operator">/</span>
+            <span class="code_number">4</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%pi</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\left[ 0\operatorname{,}0\operatorname{,}-2\right] \]
+</p>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  3.2 Divergensi
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">Bentuk operator divergensi dalam koordinat bola adalah
+      <br/>\[\vec{\nabla}\cdot\vec{V}(r,\theta,\varphi)=
+      <br/>\frac{1}{r^2}\frac{\partial (r^2V_r)}{\partial r}+
+      <br/>\frac{1}{r\sin\theta}\frac{\partial(\sin\theta V_\theta)}{\partial \theta}+
+      <br/>\frac{1}{r\sin\theta}\frac{\partial V_\varphi}{\partial \varphi}
+      <br/>\]
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i28)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_comment">/*---*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_variable">V1sph</span>
+            <span class="code_operator">:</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">*</span>
+            <span class="code_function">sin</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">%varphi</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">*</span>
+            <span class="code_function">cos</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_function">cos</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">%varphi</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_comment">/*---*/</span>
+            <span class="code_comment">/*bentuk fungsi medan vektor dalam sistem koordinat bola*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_variable">Dsph</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">ev</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">express</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">*</span>
+            <span class="code_variable">V1sph</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">+</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">sin</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">*</span>
+            <span class="code_variable">V1sph</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">/</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">*</span>
+            <span class="code_function">sin</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">+</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">V1sph</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%varphi</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">/</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">*</span>
+            <span class="code_function">sin</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">diff</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">define</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">Divergensi_V1sph</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%varphi</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">Dsph</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{(V1sph)	}\left[ \sin{\left( \ensuremath{\mathrm{\% varphi}}\right) } {{r}^{2}}\operatorname{,}\cos{\left( \theta \right) } r\operatorname{,}\cos{\left( \ensuremath{\mathrm{\% varphi}}\right) }\right] \]
+</p>
+    <p>\[\operatorname{(Dsph)	}\frac{{{\cos{\left( \theta \right) }}^{2}} r-{{\sin{\left( \theta \right) }}^{2}} r}{\sin{\left( \theta \right) } r}+4 \sin{\left( \ensuremath{\mathrm{\% varphi}}\right) } r-\frac{\sin{\left( \ensuremath{\mathrm{\% varphi}}\right) }}{\sin{\left( \theta \right) } r}\]
+</p>
+    <p>\[\operatorname{	}\operatorname{Divergensi\_ V1sph}\left( r\operatorname{,}\theta \operatorname{,}\ensuremath{\mathrm{\% varphi}}\right) \operatorname{:=}\frac{{{\cos{\left( \theta \right) }}^{2}} r-{{\sin{\left( \theta \right) }}^{2}} r}{\sin{\left( \theta \right) } r}+4 \sin{\left( \ensuremath{\mathrm{\% varphi}}\right) } r-\frac{\sin{\left( \ensuremath{\mathrm{\% varphi}}\right) }}{\sin{\left( \theta \right) } r}\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i29)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">Divergensi_V1sph</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%pi</span>
+            <span class="code_operator">/</span>
+            <span class="code_number">6</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">0</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}1\]
+</p>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  3.3 Rotasi
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">Bentuk operator rotasi dalam koordinat bola adalah
+      <br/>\[\vec{\nabla}\times\vec{V}(r,\theta,\varphi)=
+      <br/>\frac{1}{r\sin\theta}\left(\frac{\partial(\sin\theta V_\varphi)}{\partial\theta} - \frac{\partial V_\theta}{\partial\varphi} \right) \hat{e_r} +
+      <br/>\frac{1}{r}\left( \frac{1}{\sin\theta}\frac{\partial V_r}{\partial \varphi} - \frac{\partial(rV_\varphi)}{\partial r}  \right) \hat{e_\theta} +
+      <br/>\frac{1}{r}\left( \frac{\partial (rV_\theta)}{\partial r}-\frac{\partial V_r}{\partial\theta} \right) \hat{e_\varphi}
+      <br/>\]
+</div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i32)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_comment">/*---*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_variable">V2sph</span>
+            <span class="code_operator">:</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">,</span>
+            <span class="code_function">sin</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_function">cos</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">%varphi</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_comment">/*---*/</span>
+            <span class="code_comment">/*bentuk medan vektor dalam sistem koordinat bola*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_variable">Rsph</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">ev</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">express</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">[</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_operator">(</span>
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">sin</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">*</span>
+            <span class="code_variable">V2sph</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">-</span>
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">V2sph</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%varphi</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">/</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">*</span>
+            <span class="code_function">sin</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_operator">(</span>
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">V2sph</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">/</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">sin</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%varphi</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">-</span>
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">*</span>
+            <span class="code_variable">V2sph</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">/</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_endofline">
+              <br/>
+            </span>    
+            <span class="code_operator">(</span>
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">*</span>
+            <span class="code_variable">V2sph</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">-</span>
+            <span class="code_function">diff</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">V2sph</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">diff</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">define</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">Rotasi_V2sph</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">r</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%theta</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%varphi</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">Rsph</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{(V2sph)	}\left[ r\operatorname{,}\sin{\left( \theta \right) }\operatorname{,}\cos{\left( \ensuremath{\mathrm{\% varphi}}\right) }\right] \]
+</p>
+    <p>\[\operatorname{(Rsph)	}\left[ \frac{\cos{\left( \theta \right) } \cos{\left( \ensuremath{\mathrm{\% varphi}}\right) }}{\sin{\left( \theta \right) } r}\operatorname{,}-\frac{\cos{\left( \ensuremath{\mathrm{\% varphi}}\right) }}{r}\operatorname{,}\frac{\sin{\left( \theta \right) }}{r}\right] \]
+</p>
+    <p>\[\operatorname{	}\operatorname{Rotasi\_ V2sph}\left( r\operatorname{,}\theta \operatorname{,}\ensuremath{\mathrm{\% varphi}}\right) \operatorname{:=}\left[ \frac{\cos{\left( \theta \right) } \cos{\left( \ensuremath{\mathrm{\% varphi}}\right) }}{\sin{\left( \theta \right) } r}\operatorname{,}-\frac{\cos{\left( \ensuremath{\mathrm{\% varphi}}\right) }}{r}\operatorname{,}\frac{\sin{\left( \theta \right) }}{r}\right] \]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i33)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">Rotasi_V2sph</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">%pi</span>
+            <span class="code_operator">/</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">0</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\left[ 0\operatorname{,}-\frac{1}{2}\operatorname{,}\frac{1}{2}\right] \]
+</p>
+    <hr/>
+    <p>
+      <small> Created with 
+        <a href="https://wxMaxima-developers.github.io/wxmaxima/">wxMaxima</a>.</small>
+    </p>
+    <small> The source of this Maxima session can be downloaded 
+      <a href="Contoh CAS 10_htmlimg/Contoh CAS 10.wxmx">here</a>.</small>
+  </body>
+</html>

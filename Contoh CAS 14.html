@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<HTML>
+ <HEAD>
+  <TITLE>Contoh CAS 14</TITLE>
+  <META NAME="generator" CONTENT="wxMaxima">
+  <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    context: "MathJax",
+    TeX: {TagSide: "left"}
+  })
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML">
+</script>
+  <link rel="stylesheet" type="text/css" href="Contoh CAS 14_htmlimg/Contoh CAS 14.css"/>
+ </HEAD>
+ <BODY>
+
+<!-- ***************************************************** -->
+<!--          Created with wxMaxima version 17.10.1         -->
+<!-- ***************************************************** -->
+<noscript><div class="error message">    Please enable JavaScript in order to get a 2d display of the equations embedded in this web page.</div></noscript>\(      \DeclareMathOperator{\abs}{abs}
+      \newcommand{\ensuremath}[1]{\mbox{$#1$}}
+\)
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Portable wxMaxima 5.41<BR>
+</P>
+
+
+<!-- Image cell -->
+
+
+<P CLASS="image">
+Figure 1:D:\DATA KHBASAR\Kuliah\FI5080_sem2_2021-2022\CAS Project 14.jpg
+<BR/>
+  <IMG src="Contoh CAS 14_htmlimg/Contoh CAS 14_0.jpg" alt="Diagram" style="max-width:90%;" >
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Definisikan fungsi f(x)<BR>
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i13)	
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">f</span>(<span class="code_variable">x</span>)<span class="code_operator">:</span><span class="code_operator">=</span>if <span class="code_variable">x</span>&gt;<span class="code_operator">=</span><span class="code_number">-</span><span class="code_number">1</span> and <span class="code_variable">x</span>&lt;<span class="code_operator">=</span><span class="code_number">0</span> then (<span class="code_variable">x</span><span class="code_operator">+</span><span class="code_number">1</span>) else (if <span class="code_variable">x</span>&gt;<span class="code_number">0</span> and <span class="code_variable">x</span>&lt;<span class="code_operator">=</span><span class="code_number">1</span> then (<span class="code_operator">-</span><span class="code_variable">x</span><span class="code_operator">+</span><span class="code_number">1</span>) else <span class="code_number">0</span>)<span class="code_endofline">;</span>  </SPAN></TD>
+</TR></TABLE>
+
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Menghitung spektrum A(w) dan B(w)<BR>Karena f(t) merupakan fungsi genap, maka spektrum B(w)=0 dan yang perlu dihitung hanyalah spektrum A(w) -&rarr; dihitung 2 kali<BR>
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i18)	
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">f_1</span>(<span class="code_variable">x</span>)<span class="code_operator">:</span><span class="code_operator">=</span>(<span class="code_operator">-</span><span class="code_variable">x</span><span class="code_operator">+</span><span class="code_number">1</span>)<span class="code_endofline">;</span>  </SPAN></TD>
+</TR></TABLE>
+
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i31)	
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">A</span>(<span class="code_variable">ω</span>)<span class="code_operator">:</span><span class="code_operator">=</span><span class="code_number">2</span><span class="code_operator">/</span>(<span class="code_variable">%pi</span>)<span class="code_operator">*</span><span class="code_function">integrate</span>(<span class="code_function">f_1</span>(<span class="code_variable">t</span>)<span class="code_operator">*</span><span class="code_function">cos</span>(<span class="code_variable">ω</span><span class="code_operator">*</span><span class="code_variable">t</span>),<span class="code_variable">t</span>,<span class="code_number">0</span>,<span class="code_number">1</span>)<span class="code_endofline">;</span><span class="code_function">B</span>(<span class="code_variable">ω</span>)<span class="code_operator">:</span><span class="code_operator">=</span><span class="code_number">0</span><span class="code_endofline">;</span>  </SPAN></TD>
+</TR></TABLE>
+
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i33)	
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">ratsimp</span>(<span class="code_function">A</span>(<span class="code_variable">ω</span>))<span class="code_endofline">;</span><span class="code_function">ratsimp</span>(<span class="code_function">B</span>(<span class="code_variable">ω</span>))<span class="code_endofline">;</span>  </SPAN></TD>
+</TR></TABLE>
+
+
+ <HR>
+ <SMALL> Created with <A HREF="https://andrejv.github.io/wxmaxima/">wxMaxima</A>.</SMALL>
+ </BODY>
+</HTML>
